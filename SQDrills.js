@@ -301,18 +301,16 @@ function bankLine(q) {
     let currentPerson = bankQueue.first;
     
     while (currentPerson !== null) {
-        if (currentPerson) {
-            if (Math.random() < 0.25) {
-                console.log(currentPerson.value + ' has faulty paperwork. Requeue.')
-                bankQueue.enqueue(currentPerson.value)
-                bankQueue.dequeue()
-            }
-            else {
-                console.log(currentPerson.value + ' dequeued.')
-                bankQueue.dequeue()
-            }
+        if (Math.random() < 0.25) {
+            console.log(currentPerson.value + ' has faulty paperwork. Requeue.')
+            bankQueue.enqueue(currentPerson.value)
+            bankQueue.dequeue()
         }
-        currentPerson = bankQueue.first;
+        else {
+            console.log(currentPerson.value + ' dequeued.')
+            bankQueue.dequeue()
+        }
+    currentPerson = bankQueue.first;
     }
 
 }
